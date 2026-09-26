@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Appointment Form</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="card">
+    <header class="card__header">
+      <h1>Doctor Appointment Form</h1>
+      <p>Fill in your details and we will confirm your appointment.</p>
+    </header>
+
+    <form class="form" action="/book" method="post">
+      <section class="section">
+        <h2>Appointment</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="date">Appointment date</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+          <div class="field">
+            <label for="time">Appointment time</label>
+            <input type="time" id="time" name="time" min="09:00" max="18:00" required>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Patient details</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="first_name" autocomplete="given-name" required>
+          </div>
+          <div class="field">
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="last_name" autocomplete="family-name" required>
+          </div>
+
+          <fieldset class="field field--full">
+            <legend>Gender</legend>
+            <div class="options options--row">
+              <label class="option"><input type="radio" name="gender" value="male" required> Male</label>
+              <label class="option"><input type="radio" name="gender" value="female"> Female</label>
+              <label class="option"><input type="radio" name="gender" value="other"> Other</label>
+            </div>
+          </fieldset>
+
+          <div class="field field--full">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" inputmode="numeric"
+                   pattern="[0-9]{10}" maxlength="10" placeholder="10-digit mobile number" required>
+            <small class="hint">Digits only, e.g. 9876543210</small>
+          </div>
+
+          <div class="field">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" autocomplete="address-level2" required>
+          </div>
+          <div class="field">
+            <label for="state">State</label>
+            <input type="text" id="state" name="state" autocomplete="address-level1" required>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Visit details</h2>
+        <fieldset class="field">
+          <legend>Appointment type</legend>
+          <p class="hint">Select all that apply.</p>
+          <div class="options options--grid">
+            <label class="option"><input type="checkbox" name="appointment_type" value="cervix"> Cervix checkup</label>
+            <label class="option"><input type="checkbox" name="appointment_type" value="heart"> Heart checkup</label>
+            <label class="option"><input type="checkbox" name="appointment_type" value="eye"> Eye checkup</label>
+            <label class="option"><input type="checkbox" name="appointment_type" value="hearing"> Hearing test</label>
+          </div>
+        </fieldset>
+
+        <div class="field">
+          <label for="query">Your query</label>
+          <textarea id="query" name="query" rows="5" placeholder="Describe your symptoms or questions"></textarea>
+        </div>
+      </section>
+
+      <div class="actions">
+        <button type="reset" class="btn btn--secondary">Clear</button>
+        <button type="submit" class="btn btn--primary">Book appointment</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>

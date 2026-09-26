@@ -1,0 +1,5 @@
+appointments.xlsx
+appointments_pending.json
+~$appointments.xlsx
+*.tmp.xlsx
+__pycache__/
